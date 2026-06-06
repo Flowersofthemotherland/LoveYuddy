@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="day2PageTitle">第二天：看图说话练习 - 塔罗牌快速学习</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lang-switch">
+        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()" data-i18n="langBtn">🌐 English</button>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-btn" data-i18n="backBtn">← 返回首页</a>
+            <h1 class="title" data-i18n="day2PageTitle">🃏 第二天：看图说话练习</h1>
+            <p class="subtitle" data-i18n="day2Subtitle">学习描述牌面与提问技巧</p>
+        </header>
+
+        <main class="main-content">
+            <div class="day-guide">
+                <h2 class="guide-title" data-i18n="day2GuideTitle">📝 练习方法</h2>
+                <p class="guide-text" data-i18n="day2GuideText">
+                    单牌解读是塔罗牌最基础的练习方式。每天可以抽取一张牌，回答以下问题：
+                    1. 我看到了什么？（颜色、人物、符号、场景）
+                    2. 这张牌给我的第一感觉是什么？
+                    3. 这张牌与我的问题有什么关联？
+                </p>
+            </div>
+
+            <div class="practice-area">
+                <div class="card-display" id="cardDisplay">
+                    <div class="card-image-wrapper">
+                        <img src="图库/愚人.webp" alt="愚人" class="card-image-large" id="cardImage">
+                        <div class="card-number" id="cardNumber">0</div>
+                    </div>
+                    <div class="card-name" id="cardName">愚人</div>
+                    <div class="card-feature" id="cardFeature">人站悬崖边</div>
+                    <div class="card-keyword" id="cardKeyword">冒险/开始</div>
+                </div>
+
+                <div class="exercise-section">
+                    <h3 class="exercise-title" data-i18n="exerciseTitle">✏️ 练习区域</h3>
+                    
+                    <div class="exercise-item">
+                        <label class="exercise-label" data-i18n="describeLabel">1. 描述画面</label>
+                        <textarea class="exercise-input" id="describeInput" data-i18n-placeholder="describePlaceholder" placeholder="描述你看到的牌面元素：颜色、人物、符号、场景..."></textarea>
+                    </div>
+
+                    <div class="exercise-item">
+                        <label class="exercise-label" id="questionLabel" data-i18n="questionLabel">2. 联想问题：如果问"今天运气如何"，这张牌会怎么回答？</label>
+                        <textarea class="exercise-input" id="questionInput" data-i18n-placeholder="questionInputPlaceholder" placeholder="输入你想问的问题（建议使用开放式问题）..."></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" id="refreshBtn" data-i18n="refreshBtn">🔄 重新抽牌</button>
+                    <button class="btn btn-secondary" id="clearBtn" data-i18n="clearBtn">🗑️ 清空</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <a href="day1.html" class="prev-page-btn" data-i18n="prevPageBtn">← 返回第一天</a>
+            <a href="day3.html" class="next-page-btn" data-i18n="nextPageBtn3">进入第三天 →</a>
+        </footer>
+    </div>
+
+    <script src="translation.js"></script>
+    <script>
+        const cardsData = [
+            { id: 0, nameKey: "fool", featureKey: "foolFeature", keywordKey: "foolKeyword", color: "#FFE066", img: "图库/愚人.webp" },
+            { id: 1, nameKey: "magician", featureKey: "magicianFeature", keywordKey: "magicianKeyword", color: "#FFA726", img: "图库/魔术师.webp" },
+            { id: 2, nameKey: "priestess", featureKey: "priestessFeature", keywordKey: "priestessKeyword", color: "#AB47BC", img: "图库/女祭司.webp" },
+            { id: 3, nameKey: "empress", featureKey: "empressFeature", keywordKey: "empressKeyword", color: "#EC407A", img: "图库/女皇.webp" },
+            { id: 4, nameKey: "emperor", featureKey: "emperorFeature", keywordKey: "emperorKeyword", color: "#D32F2F", img: "图库/皇帝.webp" },
+            { id: 5, nameKey: "hierophant", featureKey: "hierophantFeature", keywordKey: "hierophantKeyword", color: "#C2185B", img: "图库/教皇.webp" },
+            { id: 6, nameKey: "lovers", featureKey: "loversFeature", keywordKey: "loversKeyword", color: "#E91E63", img: "图库/恋人.webp" },
+            { id: 7, nameKey: "chariot", featureKey: "chariotFeature", keywordKey: "chariotKeyword", color: "#9C27B0", img: "图库/战车.webp" },
+            { id: 8, nameKey: "strength", featureKey: "strengthFeature", keywordKey: "strengthKeyword", color: "#673AB7", img: "图库/力量.webp" },
+            { id: 9, nameKey: "hermit", featureKey: "hermitFeature", keywordKey: "hermitKeyword", color: "#3F51B5", img: "图库/隐士.webp" },
+            { id: 10, nameKey: "wheel", featureKey: "wheelFeature", keywordKey: "wheelKeyword", color: "#2196F3", img: "图库/命运之轮.webp" },
+            { id: 11, nameKey: "justice", featureKey: "justiceFeature", keywordKey: "justiceKeyword", color: "#03A9F4", img: "图库/正义.webp" },
+            { id: 12, nameKey: "hanged", featureKey: "hangedFeature", keywordKey: "hangedKeyword", color: "#00BCD4", img: "图库/倒吊人.webp" },
+            { id: 13, nameKey: "death", featureKey: "deathFeature", keywordKey: "deathKeyword", color: "#009688", img: "图库/死神.webp" },
+            { id: 14, nameKey: "temperance", featureKey: "temperanceFeature", keywordKey: "temperanceKeyword", color: "#4CAF50", img: "图库/节制.webp" },
+            { id: 15, nameKey: "devil", featureKey: "devilFeature", keywordKey: "devilKeyword", color: "#8BC34A", img: "图库/恶魔.webp" },
+            { id: 16, nameKey: "tower", featureKey: "towerFeature", keywordKey: "towerKeyword", color: "#CDDC39", img: "图库/高塔.webp" },
+            { id: 17, nameKey: "star", featureKey: "starFeature", keywordKey: "starKeyword", color: "#FFEB3B", img: "图库/星星.webp" },
+            { id: 18, nameKey: "moon", featureKey: "moonFeature", keywordKey: "moonKeyword", color: "#FFC107", img: "图库/月亮.webp" },
+            { id: 19, nameKey: "sun", featureKey: "sunFeature", keywordKey: "sunKeyword", color: "#FF9800", img: "图库/太阳.webp" },
+            { id: 20, nameKey: "judgement", featureKey: "judgementFeature", keywordKey: "judgementKeyword", color: "#FF5722", img: "图库/审判.webp" },
+            { id: 21, nameKey: "world", featureKey: "worldFeature", keywordKey: "worldKeyword", color: "#795548", img: "图库/世界.webp" }
+        ];
+
+        const questionKeys = [
+            "qTodayLuck", "qLove", "qCareer", "qRelationship", "qHealth",
+            "qFinance", "qStudy", "qTravel", "qGrowth", "qDecision",
+            "qFamily", "qFuture"
+        ];
+
+        let currentCard = null;
+        let currentQuestionKey = "";
+
+        function getRandomQuestion() {
+            return questionKeys[Math.floor(Math.random() * questionKeys.length)];
+        }
+
+        function drawRandomCard() {
+            const randomIndex = Math.floor(Math.random() * cardsData.length);
+            currentCard = cardsData[randomIndex];
+            currentQuestionKey = getRandomQuestion();
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const display = document.getElementById('cardDisplay');
+            display.style.borderTop = `4px solid ${currentCard.color}`;
+            document.getElementById('cardImage').src = currentCard.img;
+            document.getElementById('cardImage').alt = t(currentCard.nameKey);
+            document.getElementById('cardNumber').textContent = currentCard.id;
+            document.getElementById('cardName').textContent = t(currentCard.nameKey);
+            document.getElementById('cardFeature').textContent = t(currentCard.featureKey);
+            document.getElementById('cardKeyword').textContent = t(currentCard.keywordKey);
+            document.getElementById('questionLabel').textContent = `${t('questionLabelPrefix')}${t(currentQuestionKey)}`;
+            document.getElementById('questionInput').placeholder = `${t('questionPlaceholderPrefix')}${t(currentCard.nameKey)}${t('questionPlaceholderSuffix')}`;
+        }
+
+        function clearInputs() {
+            document.getElementById('describeInput').value = '';
+            document.getElementById('questionInput').value = '';
+        }
+
+        document.getElementById('refreshBtn').addEventListener('click', drawRandomCard);
+        document.getElementById('clearBtn').addEventListener('click', clearInputs);
+
+        document.addEventListener('languageChanged', () => {
+            if (currentCard) {
+                updateDisplay();
+            }
+        });
+
+        drawRandomCard();
+    </script>
+</body>
+</html>

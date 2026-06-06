@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="day3PageTitle">第三天：实战解牌 - 塔罗牌快速学习</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lang-switch">
+        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()" data-i18n="langBtn">🌐 English</button>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-btn" data-i18n="backBtn">← 返回首页</a>
+            <h1 class="title" data-i18n="day3PageTitle">🎯 第三天：实战解牌</h1>
+            <p class="subtitle" data-i18n="day3Subtitle">四角度解读法 · 案例学习</p>
+        </header>
+
+        <main class="main-content">
+            <div class="day-guide">
+                <h2 class="guide-title" data-i18n="day3GuideTitle">📚 四角度解读法</h2>
+                <p class="guide-text" data-i18n="day3GuideText">任何一张牌，按这四个角度快速解读</p>
+            </div>
+
+            <div class="four-methods">
+                <div class="method-card method-1">
+                    <h3 class="method-title" data-i18n="method1Title">🔥 元素属性</h3>
+                    <ul class="method-list">
+                        <li><span class="suit-wands" data-i18n="method1Wands">权杖（火）</span><span data-i18n="method1WandsDesc">→ 行动、热情、竞争</span></li>
+                        <li><span class="suit-cups" data-i18n="method1Cups">圣杯（水）</span><span data-i18n="method1CupsDesc">→ 情感、关系、直觉</span></li>
+                        <li><span class="suit-swords" data-i18n="method1Swords">宝剑（风）</span><span data-i18n="method1SwordsDesc">→ 思考、冲突、沟通</span></li>
+                        <li><span class="suit-pentacles" data-i18n="method1Pentacles">星币（土）</span><span data-i18n="method1PentaclesDesc">→ 物质、工作、金钱</span></li>
+                    </ul>
+                </div>
+
+                <div class="method-card method-2">
+                    <h3 class="method-title" data-i18n="method2Title">🔢 数字阶段</h3>
+                    <ul class="method-list" id="method2List">
+                        <li data-i18n="method2_1">1：开始、机会</li>
+                        <li data-i18n="method2_2">2：选择、平衡</li>
+                        <li data-i18n="method2_3">3：合作、初步成果</li>
+                        <li data-i18n="method2_4">4：稳定、占有</li>
+                        <li data-i18n="method2_5">5：冲突、失去</li>
+                        <li data-i18n="method2_6">6：和谐、分享</li>
+                        <li data-i18n="method2_7">7：挑战、评估</li>
+                        <li data-i18n="method2_8">8：行动、速度</li>
+                        <li data-i18n="method2_9">9：接近完成、独处</li>
+                        <li data-i18n="method2_10">10：完成、过犹不及</li>
+                    </ul>
+                </div>
+
+                <div class="method-card method-3">
+                    <h3 class="method-title" data-i18n="method3Title">🃏 大牌关键词</h3>
+                    <ul class="method-list" id="method3List">
+                        <li data-i18n="method3_1">愚人：冒险、新开始、天真</li>
+                        <li data-i18n="method3_2">魔术师：行动力、资源整合</li>
+                        <li data-i18n="method3_3">女祭司：直觉、隐藏知识</li>
+                        <li data-i18n="method3_4">皇后：丰盛、母性</li>
+                        <li data-i18n="method3_5">皇帝：结构、权威</li>
+                        <li data-i18n="method3_6">教皇：传统、指导</li>
+                        <li data-i18n="method3_7">恋人：选择、价值观</li>
+                        <li data-i18n="method3_8">战车：意志、控制</li>
+                        <li data-i18n="method3_9">力量：耐心、柔克刚</li>
+                        <li data-i18n="method3_10">隐士：内省、寻求指引</li>
+                        <li data-i18n="method3_11">命运之轮：转折、机遇</li>
+                        <li data-i18n="method3_12">正义：平衡、因果</li>
+                        <li data-i18n="method3_13">倒吊人：牺牲、换视角</li>
+                        <li data-i18n="method3_14">死神：结束与开始</li>
+                        <li data-i18n="method3_15">节制：调和、耐心</li>
+                        <li data-i18n="method3_16">恶魔：束缚、物质欲望</li>
+                        <li data-i18n="method3_17">高塔：突变、崩塌</li>
+                        <li data-i18n="method3_18">星星：希望、疗愈</li>
+                        <li data-i18n="method3_19">月亮：不安、幻觉</li>
+                        <li data-i18n="method3_20">太阳：成功、快乐</li>
+                        <li data-i18n="method3_21">审判：觉醒、召唤</li>
+                        <li data-i18n="method3_22">世界：完成、圆满</li>
+                    </ul>
+                </div>
+
+                <div class="method-card method-4">
+                    <h3 class="method-title" data-i18n="method4Title">🔄 逆位简化记忆</h3>
+                    <ul class="method-list" id="method4List">
+                        <li data-i18n="method4_1">能量不足 → 延迟、缺乏、不敢做</li>
+                        <li data-i18n="method4_2">能量过度 → 纠缠、固执、失控</li>
+                        <li data-i18n="method4_3">向内化 → 需要反省、不向外显</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="case-title" data-i18n="caseTitle">📖 实战案例解读</h2>
+
+            <div class="case-section" id="caseSection">
+                <div class="case-card">
+                    <div class="case-header" data-i18n="case1Header">案例1：问感情，抽到恋人正位</div>
+                    <div class="case-card-inner">
+                        <div class="case-card-image">
+                            <img src="图库/恋人.webp" alt="恋人" class="case-image" id="case1Img">
+                            <div class="case-card-name" data-i18n="lovers">恋人</div>
+                            <div class="case-card-keyword" data-i18n="loversKeyword">选择、爱情、价值观</div>
+                        </div>
+                        <div class="case-content">
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step1">步骤1</span>
+                                <span class="step-text" data-i18n="case1Step1">元素：大牌（无元素，看核心含义）</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step2">步骤2</span>
+                                <span class="step-text" data-i18n="case1Step2">数字：无数字，看大牌关键词</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step3">步骤3</span>
+                                <span class="step-text" data-i18n="case1Step3">关键词：选择、爱情、价值观</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step4">步骤4</span>
+                                <span class="step-text" data-i18n="case1Step4">逆位：正位，能量充足</span>
+                            </div>
+                            <div class="case-result" data-i18n="case1Result">
+                                <strong>综合解读：</strong>你正面临感情上的重要选择，这个人与你的价值观很契合，是一段真诚的关系，可以认真考虑。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header" data-i18n="case2Header">案例2：问工作，抽到死神正位</div>
+                    <div class="case-card-inner">
+                        <div class="case-card-image">
+                            <img src="图库/死神.webp" alt="死神" class="case-image" id="case2Img">
+                            <div class="case-card-name" data-i18n="death">死神</div>
+                            <div class="case-card-keyword" data-i18n="deathKeyword">结束、转变</div>
+                        </div>
+                        <div class="case-content">
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step1">步骤1</span>
+                                <span class="step-text" data-i18n="case2Step1">元素：大牌（无元素）</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step2">步骤2</span>
+                                <span class="step-text" data-i18n="case2Step2">数字：无数字</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step3">步骤3</span>
+                                <span class="step-text" data-i18n="case2Step3">关键词：结束、转变</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step4">步骤4</span>
+                                <span class="step-text" data-i18n="case2Step4">逆位：正位，需要接受转变</span>
+                            </div>
+                            <div class="case-result" data-i18n="case2Result">
+                                <strong>综合解读：</strong>目前的工作阶段即将结束，虽然可能让人不舍，但这是新的开始的契机，拥抱变化，做好迎接新机会的准备。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header" data-i18n="case3Header">案例3：问财运，抽到星币8正位</div>
+                    <div class="case-card-inner">
+                        <div class="case-card-image">
+                            <img src="图库/星币八.webp" alt="星币8" class="case-image" id="case3Img">
+                            <div class="case-card-name">星币8</div>
+                            <div class="case-card-keyword" data-i18n="keyword8">行动、速度</div>
+                        </div>
+                        <div class="case-content">
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step1">步骤1</span>
+                                <span class="step-text" data-i18n="case3Step1">元素：星币（土）→ 物质、工作、金钱</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step2">步骤2</span>
+                                <span class="step-text" data-i18n="case3Step2">数字：8 → 行动、速度</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step3">步骤3</span>
+                                <span class="step-text" data-i18n="case3Step3">（小牌，无大牌关键词）</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step4">步骤4</span>
+                                <span class="step-text" data-i18n="case3Step4">逆位：正位，能量充足</span>
+                            </div>
+                            <div class="case-result" data-i18n="case3Result">
+                                <strong>综合解读：</strong>财运不错，通过认真工作和技能提升会有稳定收入，需要专注努力，一份耕耘一份收获。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header" data-i18n="case4Header">案例4：问学习，抽到隐士逆位</div>
+                    <div class="case-card-inner">
+                        <div class="case-card-image">
+                            <img src="图库/隐士.webp" alt="隐士" class="case-image" id="case4Img">
+                            <div class="case-card-name" data-i18n="hermit">隐士</div>
+                            <div class="case-card-keyword" data-i18n="hermitKeyword">内省、寻求指引</div>
+                            <div class="case-card-reversed" data-i18n="reversed">逆位</div>
+                        </div>
+                        <div class="case-content">
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step1">步骤1</span>
+                                <span class="step-text" data-i18n="case4Step1">元素：大牌（无元素）</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step2">步骤2</span>
+                                <span class="step-text" data-i18n="case4Step2">数字：无数字</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step3">步骤3</span>
+                                <span class="step-text" data-i18n="case4Step3">关键词：内省、寻求指引</span>
+                            </div>
+                            <div class="case-step">
+                                <span class="step-num" data-i18n="step4">步骤4</span>
+                                <span class="step-text" data-i18n="case4Step4">逆位：能量过度或向内化 → 可能太孤僻、拒绝帮助</span>
+                            </div>
+                            <div class="case-result" data-i18n="case4Result">
+                                <strong>综合解读：</strong>学习上不要过于闭门造车，可以多向老师同学请教，避免陷入自我怀疑的状态，适当的交流有助于进步。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="refresh-section">
+                <button class="btn btn-primary" id="refreshCaseBtn" data-i18n="refreshCaseBtn">🔄 刷新案例牌</button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <a href="day2.html" class="prev-page-btn" data-i18n="prevPageBtn2">← 回到第二天</a>
+            <span class="finish-text" data-i18n="finishText">🎉 恭喜完成三天学习！</span>
+        </footer>
+    </div>
+
+    <script src="translation.js"></script>
+    <script>
+        const cases = [
+            { id: 'case1Img', nameKey: 'lovers', img: '图库/恋人.webp' },
+            { id: 'case2Img', nameKey: 'death', img: '图库/死神.webp' },
+            { id: 'case3Img', nameKey: 'pentacles8', img: '图库/星币八.webp' },
+            { id: 'case4Img', nameKey: 'hermit', img: '图库/隐士.webp' }
+        ];
+
+        const majorArcana = [
+            { nameKey: 'fool', img: '图库/愚人.webp' },
+            { nameKey: 'magician', img: '图库/魔术师.webp' },
+            { nameKey: 'priestess', img: '图库/女祭司.webp' },
+            { nameKey: 'empress', img: '图库/女皇.webp' },
+            { nameKey: 'emperor', img: '图库/皇帝.webp' },
+            { nameKey: 'hierophant', img: '图库/教皇.webp' },
+            { nameKey: 'lovers', img: '图库/恋人.webp' },
+            { nameKey: 'chariot', img: '图库/战车.webp' },
+            { nameKey: 'strength', img: '图库/力量.webp' },
+            { nameKey: 'hermit', img: '图库/隐士.webp' },
+            { nameKey: 'wheel', img: '图库/命运之轮.webp' },
+            { nameKey: 'justice', img: '图库/正义.webp' },
+            { nameKey: 'hanged', img: '图库/倒吊人.webp' },
+            { nameKey: 'death', img: '图库/死神.webp' },
+            { nameKey: 'temperance', img: '图库/节制.webp' },
+            { nameKey: 'devil', img: '图库/恶魔.webp' },
+            { nameKey: 'tower', img: '图库/高塔.webp' },
+            { nameKey: 'star', img: '图库/星星.webp' },
+            { nameKey: 'moon', img: '图库/月亮.webp' },
+            { nameKey: 'sun', img: '图库/太阳.webp' },
+            { nameKey: 'judgement', img: '图库/审判.webp' },
+            { nameKey: 'world', img: '图库/世界.webp' }
+        ];
+
+        const minorArcana = [
+            { nameKey: 'pentacles8', img: '图库/星币八.webp' },
+            { nameKey: 'pentacles7', img: '图库/星币七.webp' },
+            { nameKey: 'pentacles6', img: '图库/星币六.webp' },
+            { nameKey: 'pentacles5', img: '图库/星币五.webp' },
+            { nameKey: 'pentacles4', img: '图库/星币四.webp' },
+            { nameKey: 'pentacles3', img: '图库/星币三.webp' },
+            { nameKey: 'pentacles2', img: '图库/星币二.webp' },
+            { nameKey: 'cups8', img: '图库/圣杯八.webp' },
+            { nameKey: 'swords8', img: '图库/宝剑八.webp' },
+            { nameKey: 'wands8', img: '图库/权杖八.webp' }
+        ];
+
+        function refreshCases() {
+            const case1Card = majorArcana[Math.floor(Math.random() * majorArcana.length)];
+            const case2Card = majorArcana[Math.floor(Math.random() * majorArcana.length)];
+            const case3Card = minorArcana[Math.floor(Math.random() * minorArcana.length)];
+            const case4Card = majorArcana[Math.floor(Math.random() * majorArcana.length)];
+
+            document.getElementById('case1Img').src = case1Card.img;
+            document.getElementById('case2Img').src = case2Card.img;
+            document.getElementById('case3Img').src = case3Card.img;
+            document.getElementById('case4Img').src = case4Card.img;
+            
+            const caseCards = document.querySelectorAll('.case-card');
+            const newCards = [case1Card, case2Card, case3Card, case4Card];
+            
+            caseCards.forEach((card, index) => {
+                const nameEl = card.querySelector('.case-card-name');
+                const imgEl = card.querySelector('.case-image');
+                if (nameEl && imgEl && newCards[index]) {
+                    nameEl.textContent = t(newCards[index].nameKey);
+                    imgEl.alt = t(newCards[index].nameKey);
+                }
+            });
+        }
+
+        document.getElementById('refreshCaseBtn').addEventListener('click', refreshCases);
+
+        document.addEventListener('languageChanged', () => {
+            refreshCases();
+        });
+    </script>
+</body>
+</html>

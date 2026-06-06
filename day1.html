@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="day1PageTitle">第一天：认识塔罗牌 - 塔罗牌快速学习</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lang-switch">
+        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()" data-i18n="langBtn">🌐 English</button>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-btn" data-i18n="backBtn">← 返回首页</a>
+            <h1 class="title" data-i18n="day1PageTitle">📚 第一天：认识塔罗牌</h1>
+            <p class="subtitle" data-i18n="day1Subtitle">了解塔罗牌的基本结构与象征体系</p>
+        </header>
+
+        <main class="main-content">
+            <div class="day-guide">
+                <h2 class="guide-title" data-i18n="day1GuideTitle">📝 学习方法</h2>
+                <p class="guide-text" data-i18n="day1GuideText">
+                    塔罗牌由78张牌组成，分为大阿卡纳（22张）和小阿卡纳（56张）。大阿卡纳代表人生的重大课题和精神旅程，从0号愚人开始，到21号世界结束，象征着完整的灵魂进化过程。小阿卡纳分为四个花色：权杖（火元素，代表行动与创造力）、圣杯（水元素，代表情感与直觉）、宝剑（风元素，代表思维与冲突）、星币（土元素，代表物质与稳定）。每个花色包含1-10的数字牌和四张宫廷牌（侍从、骑士、皇后、国王）。
+                </p>
+            </div>
+
+            <div class="cards-grid" id="cardsGrid"></div>
+        </main>
+
+        <footer class="footer">
+            <a href="day2.html" class="next-page-btn" data-i18n="nextPageBtn">进入第二天 →</a>
+        </footer>
+    </div>
+
+    <script src="translation.js"></script>
+    <script>
+        const cardsData = [
+            { id: 0, nameKey: "fool", featureKey: "foolFeature", keywordKey: "foolKeyword", color: "#FFE066", img: "图库/愚人.webp" },
+            { id: 1, nameKey: "magician", featureKey: "magicianFeature", keywordKey: "magicianKeyword", color: "#FFA726", img: "图库/魔术师.webp" },
+            { id: 2, nameKey: "priestess", featureKey: "priestessFeature", keywordKey: "priestessKeyword", color: "#AB47BC", img: "图库/女祭司.webp" },
+            { id: 3, nameKey: "empress", featureKey: "empressFeature", keywordKey: "empressKeyword", color: "#EC407A", img: "图库/女皇.webp" },
+            { id: 4, nameKey: "emperor", featureKey: "emperorFeature", keywordKey: "emperorKeyword", color: "#D32F2F", img: "图库/皇帝.webp" },
+            { id: 5, nameKey: "hierophant", featureKey: "hierophantFeature", keywordKey: "hierophantKeyword", color: "#C2185B", img: "图库/教皇.webp" },
+            { id: 6, nameKey: "lovers", featureKey: "loversFeature", keywordKey: "loversKeyword", color: "#E91E63", img: "图库/恋人.webp" },
+            { id: 7, nameKey: "chariot", featureKey: "chariotFeature", keywordKey: "chariotKeyword", color: "#9C27B0", img: "图库/战车.webp" },
+            { id: 8, nameKey: "strength", featureKey: "strengthFeature", keywordKey: "strengthKeyword", color: "#673AB7", img: "图库/力量.webp" },
+            { id: 9, nameKey: "hermit", featureKey: "hermitFeature", keywordKey: "hermitKeyword", color: "#3F51B5", img: "图库/隐士.webp" },
+            { id: 10, nameKey: "wheel", featureKey: "wheelFeature", keywordKey: "wheelKeyword", color: "#2196F3", img: "图库/命运之轮.webp" },
+            { id: 11, nameKey: "justice", featureKey: "justiceFeature", keywordKey: "justiceKeyword", color: "#03A9F4", img: "图库/正义.webp" },
+            { id: 12, nameKey: "hanged", featureKey: "hangedFeature", keywordKey: "hangedKeyword", color: "#00BCD4", img: "图库/倒吊人.webp" },
+            { id: 13, nameKey: "death", featureKey: "deathFeature", keywordKey: "deathKeyword", color: "#009688", img: "图库/死神.webp" },
+            { id: 14, nameKey: "temperance", featureKey: "temperanceFeature", keywordKey: "temperanceKeyword", color: "#4CAF50", img: "图库/节制.webp" },
+            { id: 15, nameKey: "devil", featureKey: "devilFeature", keywordKey: "devilKeyword", color: "#8BC34A", img: "图库/恶魔.webp" },
+            { id: 16, nameKey: "tower", featureKey: "towerFeature", keywordKey: "towerKeyword", color: "#CDDC39", img: "图库/高塔.webp" },
+            { id: 17, nameKey: "star", featureKey: "starFeature", keywordKey: "starKeyword", color: "#FFEB3B", img: "图库/星星.webp" },
+            { id: 18, nameKey: "moon", featureKey: "moonFeature", keywordKey: "moonKeyword", color: "#FFC107", img: "图库/月亮.webp" },
+            { id: 19, nameKey: "sun", featureKey: "sunFeature", keywordKey: "sunKeyword", color: "#FF9800", img: "图库/太阳.webp" },
+            { id: 20, nameKey: "judgement", featureKey: "judgementFeature", keywordKey: "judgementKeyword", color: "#FF5722", img: "图库/审判.webp" },
+            { id: 21, nameKey: "world", featureKey: "worldFeature", keywordKey: "worldKeyword", color: "#795548", img: "图库/世界.webp" }
+        ];
+
+        function createCardElement(card) {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'tarot-card';
+            cardDiv.style.borderTop = `4px solid ${card.color}`;
+            cardDiv.innerHTML = `
+                <div class="card-image-wrapper">
+                    <img src="${card.img}" alt="${t(card.nameKey)}" class="card-image">
+                    <div class="card-number">${card.id}</div>
+                </div>
+                <div class="card-name" data-i18n="${card.nameKey}">${t(card.nameKey)}</div>
+                <div class="card-feature" data-i18n="${card.featureKey}">${t(card.featureKey)}</div>
+                <div class="card-keyword" data-i18n="${card.keywordKey}">${t(card.keywordKey)}</div>
+            `;
+            return cardDiv;
+        }
+
+        function renderCards() {
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
+            cardsData.forEach(card => grid.appendChild(createCardElement(card)));
+        }
+
+        renderCards();
+
+        document.addEventListener('languageChanged', () => {
+            renderCards();
+        });
+    </script>
+</body>
+</html>
